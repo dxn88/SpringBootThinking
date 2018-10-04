@@ -8,10 +8,10 @@ import com.sun.deploy.util.StringUtils;
  */
 public class OuterClass {
 
-    private static final char PACKAGE_SEPARATOR = '.';
-    private static final char INNER_CLASS_SEPARATOR = '$';
+    public static final char PACKAGE_SEPARATOR = '.';
+    public static final char INNER_CLASS_SEPARATOR = '$';
 
-    private static final String innerClassPath = "om.jd.OuterClass.InnerClass";
+    public static final String innerClassPath = "com.jd.OuterClass.InnerClass";
 
     public static void main(String[] args) {
         // 外部类和内部类用$符号链接
@@ -22,7 +22,7 @@ public class OuterClass {
         System.out.println("innerClass = " + innerClass);
     }
 
-    private static String convert2InnerClassPath(String path) {
+    public static String convert2InnerClassPath(String path) {
         int lastDotIndex = path.lastIndexOf(PACKAGE_SEPARATOR);
         if (lastDotIndex != -1) {
             String innerClassName = path.substring(0, lastDotIndex) + INNER_CLASS_SEPARATOR + path.substring(lastDotIndex + 1);
