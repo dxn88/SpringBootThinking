@@ -5,6 +5,9 @@ import com.sun.istack.internal.Nullable;
 /**
  * @Auther: daixunan
  * @Date: 2018/10/5
+ * @Data 参考资料 https://www.cnblogs.com/hypnotizer/p/5522020.html    类加载机制
+ * @Data 参考资料 https://www.jianshu.com/p/b6547abd0706    类加载机制
+ * @Data 参考资料 https://blog.csdn.net/zhoudaxia/article/details/35897057    类加载机制
  */
 public class TestClassLoader {
 
