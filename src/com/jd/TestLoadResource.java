@@ -11,7 +11,6 @@ import org.springframework.util.Assert;
 
 //  资源转成Object ，具体用的时候在用 instanceof判断类型， instanceof会根据实际类型 new 实际类型 判断类型，在强转对应类型
 
- @Component
 public class TestLoadResource {
 
     public static void main(String[] args) {
