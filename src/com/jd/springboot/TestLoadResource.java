@@ -1,4 +1,4 @@
-package com.jd;
+package com.jd.springboot;
 
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;

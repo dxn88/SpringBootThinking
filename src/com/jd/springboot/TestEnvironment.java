@@ -1,4 +1,4 @@
-package com.jd;
+package com.jd.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;

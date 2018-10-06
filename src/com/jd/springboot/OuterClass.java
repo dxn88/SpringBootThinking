@@ -1,4 +1,4 @@
-package com.jd;
+package com.jd.springboot;
 
 import com.sun.deploy.util.StringUtils;
 

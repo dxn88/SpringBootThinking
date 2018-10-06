@@ -1,17 +1,12 @@
-package com.jd;
+package com.jd.springboot;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Indexed;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Documented;
-import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
-import java.util.jar.Attributes;
 
 /**
  * @Auther: daixunan
