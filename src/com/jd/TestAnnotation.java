@@ -7,7 +7,9 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Indexed;
 
+import java.lang.annotation.Annotation;
 import java.lang.annotation.Documented;
+import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
 import java.util.jar.Attributes;
 
@@ -17,6 +19,7 @@ import java.util.jar.Attributes;
  */
 
 // 参考资料 https://blog.csdn.net/sinat_38259539/article/details/71799078
+// 参考资料 https://www.cnblogs.com/baiqiantao/p/7469746.html
 // 1. *.class 和 全类名 Class.forName() 的区别？
 
 //    RTTI，编译器在编译时打开和检查.class文件
@@ -53,6 +56,22 @@ public class TestAnnotation {
         System.out.println("documented.annotationType() = " + documented.annotationType());
 
 //        TestAnnotation.class.getAnnotati
+//        AnnotatedElement annotatedElement = new AnnotatedElement() {
+//            @Override
+//            public <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
+//                return null;
+//            }
+//
+//            @Override
+//            public Annotation[] getAnnotations() {
+//                return new Annotation[0];
+//            }
+//
+//            @Override
+//            public Annotation[] getDeclaredAnnotations() {
+//                return new Annotation[0];
+//            }
+//        };
 
     }
 
