@@ -86,8 +86,9 @@ public class TestClassLoader {
     }
 
     private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-//        URL url = new URL("file:" + TestClassLoader.class.getResource("/").toString());
-        URL url = new URL("file:/E:/");
+        URL url = new URL("file:/");
+//        URL url = new URL("file:/E:/");
+        System.out.println(url.getPath());
         URLClassLoader loader = new URLClassLoader(new URL[]{url}, null);
         Class cl = Class.forName ("com.jd.springboot.UseUrlClassLoader", true, loader);
         Object foo = (Object) cl.newInstance();
