@@ -85,20 +85,22 @@ public class TestClassLoader {
     }
 
     private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-       // Test.class.getResource("/").toString() 也可以用类路径
-        URL url = new URL("file:" + "E:/");
+       // TestClassLoader.class.getResource("/").toString() 也可以用类路径
+        URL url = new URL("file:" + TestClassLoader.class.getResource("/").toString());
         System.out.println("url.getPath() = " + url.getPath());
-        URLClassLoader loader = new URLClassLoader(new URL[]{url});
+        URLClassLoader loader = new URLClassLoader(new URL[]{url}, null);
+        System.out.println(loader.getParent());
         Class cl = Class.forName ("com.jd.springboot.TestClassLoader", true, loader);
         TestClassLoader foo = (TestClassLoader) cl.newInstance();
         foo.print();
         loader.close ();
-//// foo.jar gets updated somehow
-//        loader = new URLClassLoader (new URL[] {url});
-//        cl = Class.forName ("TestClassLoader", true, loader);
-//        foo = (Runnable) cl.newInstance();
-//        // run the new implementation of Foo
-//        foo.print();
+        System.out.println(foo instanceof TestClassLoader);
+        ;
+        System.out.println(foo.getClass().getClassLoader());
+        System.out.println(cl.getClassLoader());
+        Class<?> aClass = loader.loadClass("com.jd.springboot.TestClassLoader");
+        System.out.println("aClass = " + aClass.getClassLoader());
+
     }
 
     private void print() {
