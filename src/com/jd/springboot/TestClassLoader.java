@@ -3,7 +3,8 @@ package com.jd.springboot;
 import com.sun.istack.internal.Nullable;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -18,7 +19,7 @@ import java.net.URLClassLoader;
 // 利用forName加载可以从配置文件读取属性，转成String 这是喝class不同的方式
 public class TestClassLoader {
 
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, NoSuchMethodException, InvocationTargetException {
 
 //        ClassLoader clToUse = getDefaultClassLoader();
 //        String name = OuterClass.innerClassPath;
@@ -84,24 +85,21 @@ public class TestClassLoader {
         }
     }
 
-    private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-       // TestClassLoader.class.getResource("/").toString() 也可以用类路径
-        URL url = new URL("file:" + TestClassLoader.class.getResource("/").toString()+
-                "/com/jd/springboot/");
-//        URL url = new URL("file:" + "E:/");
-        System.out.println("url.getPath() = " + url.getPath());
+    private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+//        URL url = new URL("file:" + TestClassLoader.class.getResource("/").toString());
+        URL url = new URL("file:/E:/");
         URLClassLoader loader = new URLClassLoader(new URL[]{url}, null);
-        System.out.println(loader.getParent());
-        Class cl = Class.forName ("com.jd.springboot.TestClassLoader", true, loader);
-        UseUrlClassLoader foo = (UseUrlClassLoader) cl.newInstance();
-        foo.print();
-//        loader.close ();
-//        System.out.println(foo instanceof UseUrlClassLoader);
-//
-//        System.out.println(foo.getClass().getClassLoader());
-//        System.out.println(cl.getClassLoader());
-//        Class<?> aClass = loader.loadClass("com.jd.springboot.TestClassLoader");
-//        System.out.println("aClass = " + aClass.getClassLoader());
+        Class cl = Class.forName ("com.jd.springboot.UseUrlClassLoader", true, loader);
+        Object foo = (Object) cl.newInstance();
+        Method print = cl.getMethod("print");
+        print.invoke(foo);
+        System.out.println(foo instanceof UseUrlClassLoader);
+        System.out.println(foo.getClass().getClassLoader());
+
+        Class clazz = Class.forName ("com.jd.springboot.UseUrlClassLoader");
+        Object o = clazz.newInstance();
+        System.out.println(o instanceof UseUrlClassLoader);
+
 
     }
 
