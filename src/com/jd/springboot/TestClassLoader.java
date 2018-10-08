@@ -2,6 +2,11 @@ package com.jd.springboot;
 
 import com.sun.istack.internal.Nullable;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+
 /**
  * @Auther: daixunan
  * @Date: 2018/10/5
@@ -9,29 +14,33 @@ import com.sun.istack.internal.Nullable;
  * @Data 参考资料 https://www.jianshu.com/p/b6547abd0706    类加载机制
  * @Data 参考资料 https://blog.csdn.net/zhoudaxia/article/details/35897057    类加载机制
  */
+
+// 利用forName加载可以从配置文件读取属性，转成String 这是喝class不同的方式
 public class TestClassLoader {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
 
-        ClassLoader clToUse = getDefaultClassLoader();
-        String name = OuterClass.innerClassPath;
-        Class<?> clazz = null;
-        try {
-            clazz = (clToUse != null ? clToUse.loadClass(name) : Class.forName(name));
-            System.out.println("clazz = " + clazz);
-        }
-        catch (ClassNotFoundException ex) {
-                String innerClassName =
-                        OuterClass.convert2InnerClassPath(name);
-                try {
-                    // jvm 加载分三步 加载，链接，初始化 classloader只负责第一步  forname负责三步，调用static方法
-                    clazz = (clToUse != null ? clToUse.loadClass(innerClassName) : Class.forName(innerClassName));
-                }
-                catch (ClassNotFoundException ex2) {
-                    // Swallow - let original exception get through
-                }
-            }
-            System.out.println("clazz = " + clazz);
+//        ClassLoader clToUse = getDefaultClassLoader();
+//        String name = OuterClass.innerClassPath;
+//        Class<?> clazz = null;
+//        try {
+//            clazz = (clToUse != null ? clToUse.loadClass(name) : Class.forName(name));
+//            System.out.println("clazz = " + clazz);
+//        }
+//        catch (ClassNotFoundException ex) {
+//                String innerClassName =
+//                        OuterClass.convert2InnerClassPath(name);
+//                try {
+//                    // jvm 加载分三步 加载，链接，初始化 classloader只负责第一步  forname负责三步，调用static方法
+//                    clazz = (clToUse != null ? clToUse.loadClass(innerClassName) : Class.forName(innerClassName));
+//                }
+//                catch (ClassNotFoundException ex2) {
+//                    // Swallow - let original exception get through
+//                }
+//            }
+//            System.out.println("clazz = " + clazz);
+        TestUrlLoader();
+
         }
 
         // classloader 获取
@@ -74,4 +83,26 @@ public class TestClassLoader {
             return null;
         }
     }
+
+    private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+       // Test.class.getResource("/").toString() 也可以用类路径
+        URL url = new URL("file:" + "E:/");
+        System.out.println("url.getPath() = " + url.getPath());
+        URLClassLoader loader = new URLClassLoader(new URL[]{url});
+        Class cl = Class.forName ("com.jd.springboot.TestClassLoader", true, loader);
+        TestClassLoader foo = (TestClassLoader) cl.newInstance();
+        foo.print();
+        loader.close ();
+//// foo.jar gets updated somehow
+//        loader = new URLClassLoader (new URL[] {url});
+//        cl = Class.forName ("TestClassLoader", true, loader);
+//        foo = (Runnable) cl.newInstance();
+//        // run the new implementation of Foo
+//        foo.print();
+    }
+
+    private void print() {
+        System.out.println("hello Urlloader!");
+    }
+
 }
