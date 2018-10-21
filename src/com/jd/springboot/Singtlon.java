@@ -11,6 +11,7 @@ public class Singtlon {
 
     /**
      *  非常重要 所有静态资源都要放在单利模式的前面去加载 ************
+     *  如果把singtlon放上面将会报错
      */
 
     private static List<String> strings = new ArrayList<>();
