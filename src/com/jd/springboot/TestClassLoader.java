@@ -87,20 +87,16 @@ public class TestClassLoader {
 
     private static void TestUrlLoader() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         URL url = new URL("file:/");
-//        URL url = new URL("file:/E:/");
-        System.out.println(url.getPath());
         URLClassLoader loader = new URLClassLoader(new URL[]{url}, null);
         Class cl = Class.forName ("com.jd.springboot.UseUrlClassLoader", true, loader);
-        Object foo = (Object) cl.newInstance();
+        Object foo = (UseUrlClassLoader)cl.newInstance();
         Method print = cl.getMethod("print");
         print.invoke(foo);
         System.out.println(foo instanceof UseUrlClassLoader);
-        System.out.println(foo.getClass().getClassLoader());
 
         Class clazz = Class.forName ("com.jd.springboot.UseUrlClassLoader");
         Object o = clazz.newInstance();
         System.out.println(o instanceof UseUrlClassLoader);
-
 
     }
 
