@@ -14,9 +14,9 @@ public class TestAware {
         Spring spring = new Spring();
 //        ResourceAware resourceAware = (aware)->{};
         spring.init(new MyObj());
-        spring.init(aware -> {
-            System.out.println("this is " + aware);
-        });
+        spring.init(aware ->
+            System.out.println("this is " + aware)
+        );
     }
 }
 
