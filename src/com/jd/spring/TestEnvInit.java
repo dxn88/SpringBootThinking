@@ -13,6 +13,7 @@ public class TestEnvInit  implements BeanNameAware {
     private String beanName;
 
     public static void main(String[] args) {
+        // 系统属性针对jvm  环境变量针对操作系统
         System.setProperty("a", "bean");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("${a}.xml");
         TestEnvInit myBean = (TestEnvInit) applicationContext.getBean("myObject");
