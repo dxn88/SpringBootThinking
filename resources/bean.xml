@@ -4,5 +4,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="myObject" class="com.example.sb.bean.MyBean"></bean>
+    <bean id="myObject" class="com.jd.spring.TestEnvInit"></bean>
 </beans>
