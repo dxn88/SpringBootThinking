@@ -1,5 +1,6 @@
 package com.jd.spring;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class TestForEachAndStreamOper {
 
-    private Map<String, String> aliasMap = new ConcurrentHashMap(8);
+    private Map<String, String> aliasMap = new HashMap(8);
 
 
     /**
