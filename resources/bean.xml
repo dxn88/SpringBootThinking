@@ -5,4 +5,5 @@
 
 
     <bean id="myObject" class="com.jd.spring.TestEnvInit"></bean>
+    <bean id="beanPostPro" class="com.jd.spring.TestBeanPostProcessor"></bean>
 </beans>
