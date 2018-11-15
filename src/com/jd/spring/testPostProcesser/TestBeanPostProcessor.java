@@ -1,4 +1,4 @@
-package com.jd.spring;
+package com.jd.spring.testPostProcesser;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -15,7 +15,7 @@ public class TestBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("bean = " + bean);
         System.out.println("beanName = " + beanName);
-        System.out.println("TestBeanPostProcessor.postProcessBeforeInitialization");
+        System.out.println("TestBeanPostProcessor.postProcessBeforeInitialization：对象初始化之前");
         return null;
     }
 
@@ -23,7 +23,7 @@ public class TestBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("bean = " + bean);
         System.out.println("beanName = " + beanName);
-        System.out.println("TestBeanPostProcessor.postProcessAfterInitialization");
+        System.out.println("TestBeanPostProcessor.postProcessAfterInitialization：对象初始化之后");
         return null;
     }
 }

@@ -1,6 +1,5 @@
-package com.jd.spring;
+package com.jd.spring.testPostProcesser;
 
-import com.sun.xml.internal.ws.api.policy.SourceModel;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -20,12 +19,14 @@ public class TestEnvInit  implements BeanNameAware, InitializingBean, Disposable
         System.setProperty("a", "bean");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("${a}.xml");
 
+        HelloController bean = applicationContext.getBean(HelloController.class);
+        bean.sayHello();
         //DisposableBean 调用
         ((ClassPathXmlApplicationContext) applicationContext).close();
     }
 
     public TestEnvInit() {
-        System.out.println("TestEnvInit.TestEnvInit");
+        System.out.println("TestEnvInit.TestEnvInit：构造方法");
     }
 
     @Override
@@ -35,11 +36,11 @@ public class TestEnvInit  implements BeanNameAware, InitializingBean, Disposable
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("TestEnvInit.destroy");
+        System.out.println("TestEnvInit.destroy：销毁");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("TestEnvInit.afterPropertiesSet");
+        System.out.println("TestEnvInit.afterPropertiesSet：构造方法之后初始化");
     }
 }

@@ -4,6 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="myObject" class="com.jd.spring.TestEnvInit"></bean>
-    <bean id="beanPostPro" class="com.jd.spring.TestBeanPostProcessor"></bean>
+    <bean id="myObject" class="com.jd.spring.testPostProcesser.TestEnvInit"></bean>
+    <bean id="beanPostPro" class="com.jd.spring.testPostProcesser.RoutingBeanPostProcessor"></bean>
+    <bean id="helloServiceImplV1" class="com.jd.spring.testPostProcesser.HelloServiceImplV1"></bean>
+    <bean id="helloServiceImplV2" class="com.jd.spring.testPostProcesser.HelloServiceImplV2"></bean>
+    <bean id="controller" class="com.jd.spring.testPostProcesser.HelloController"></bean>
 </beans>
