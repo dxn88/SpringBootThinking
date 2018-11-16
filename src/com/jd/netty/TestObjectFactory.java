@@ -21,7 +21,7 @@ public class TestObjectFactory<C> implements ObjectFactory<C>{
     @Override
     public C newObject() {
         try {
-            return clazz.getConstructor().newInstance();
+            return clazz.newInstance();
         } catch (Throwable e) {
             throw new ObjectCreateException("create Object failed from TestObjectFactory " + clazz, e);
         }
