@@ -13,7 +13,7 @@ public class HelloServiceImplV1 implements HelloService{
     }
 
     @Override
-    public void sayHi(){
-        System.out.println("Hi from V1");
+    public void sayHi(String hi){
+        System.out.println("Hi from V1" + hi);
     }
 }

@@ -15,8 +15,8 @@ public class HelloController{
         this.helloService.sayHello();
     }
 
-    public void sayHi(){
-        this.helloService.sayHi();
+    public void sayHi(String hi){
+        this.helloService.sayHi(hi);
     }
 
 }

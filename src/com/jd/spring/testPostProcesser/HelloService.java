@@ -11,5 +11,5 @@ public interface HelloService{
     @RoutingSwitch("A")
     void sayHello();
 
-    void sayHi();
+    void sayHi(String hi);
 }

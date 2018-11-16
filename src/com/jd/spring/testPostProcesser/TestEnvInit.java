@@ -21,6 +21,7 @@ public class TestEnvInit  implements BeanNameAware, InitializingBean, Disposable
 
         HelloController bean = applicationContext.getBean(HelloController.class);
         bean.sayHello();
+        bean.sayHi("World");
         //DisposableBean 调用
         ((ClassPathXmlApplicationContext) applicationContext).close();
     }

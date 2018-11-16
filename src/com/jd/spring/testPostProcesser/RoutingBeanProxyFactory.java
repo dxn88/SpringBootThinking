@@ -45,7 +45,7 @@ public class RoutingBeanProxyFactory {
             if (method.isAnnotationPresent(RoutingSwitch.class)) {
                 switchName = method.getAnnotation(RoutingSwitch.class).value();
             }
-            if (StringUtils.hasText(switchName)) {
+            if (!StringUtils.hasText(switchName)) {
                 throw new IllegalStateException("RoutingSwitch's value is blank, method:" + method.getName());
             }
             return invocation.getMethod().invoke(getTargetBean(switchName), invocation.getArguments());
