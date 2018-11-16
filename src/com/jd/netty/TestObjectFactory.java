@@ -1,9 +1,6 @@
 package com.jd.netty;
 
 import org.springframework.util.Assert;
-import org.springframework.validation.ObjectError;
-
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
