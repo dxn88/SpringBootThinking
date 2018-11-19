@@ -1,6 +1,7 @@
 package com.jd.juc;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
@@ -9,9 +10,16 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class TestAtomic {
 
+    private volatile Integer id = 0;
+
     private static AtomicInteger num = new AtomicInteger(0);
     private static AtomicStampedReference<Integer> atomicStampedRef =
             new AtomicStampedReference<Integer>(100, 0);
+
+    private static AtomicReferenceFieldUpdater<TestAtomic, Integer> IdUpdater =
+            AtomicReferenceFieldUpdater.newUpdater(TestAtomic.class, Integer.class, "id");
+
+
 
     public static void main(String[] args) {
 
@@ -28,5 +36,12 @@ public class TestAtomic {
         System.out.println("b1 = " + b1);
         System.out.println("atomicStampedRef.getReference() = " + atomicStampedRef.getReference());
 
+        TestAtomic testAtomic = new TestAtomic();
+        IdUpdater.compareAndSet(testAtomic, 0, 11);
+        testAtomic.print();
+    }
+
+    private void print() {
+        System.out.println("id = " + id);
     }
 }
