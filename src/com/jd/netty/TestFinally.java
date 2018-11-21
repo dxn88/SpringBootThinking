@@ -15,7 +15,6 @@ public class TestFinally {
 
     private static int print() {
         try {
-
             return printA();
         } finally {
             printB();
