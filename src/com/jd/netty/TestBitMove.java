@@ -6,10 +6,10 @@ package com.jd.netty;
  */
 public class TestBitMove {
 
-   public int flag;
+    public int flag;
 
     public static void main(String[] args) {
-        int status = 1<<30;
+        int status = 1 << 30;
         switch (status) {
             case Permission.CREATE:
                 System.out.println("status = " + status);
@@ -20,7 +20,7 @@ public class TestBitMove {
             default:
         }
 
-        int permission = 1<<3;
+        int permission = 1 << 3;
 
         if ((permission & Permission.OCRCHECKED) == 0) {
             System.out.println("permission = " + permission);
@@ -30,7 +30,7 @@ public class TestBitMove {
 
     public boolean hasPermission(int permission) {
 
-        return (permission & flag) == 0 ;
+        return (permission & flag) == 0;
     }
 
 
@@ -38,7 +38,7 @@ public class TestBitMove {
         flag |= permission; // 相当于flag = flag | permission;
     }
 
-
+}
 
 interface Permission{
     int CREATE = 1<<0;
