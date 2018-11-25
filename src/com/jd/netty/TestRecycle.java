@@ -3,6 +3,7 @@ package com.jd.netty;
 import io.netty.util.Recycler;
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.util.Assert;
 
 /**
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
@@ -15,8 +16,13 @@ public class TestRecycle {
         User user = userRecycler.get();
         user.setName("dxn");
         System.out.println("user = " + user);
+        user.setName(null);
         user.recycle();
-        System.out.println("user = " + user);
+
+        User user2 = userRecycler.get();
+        System.out.println("user2 = " + user2);
+
+        Assert.isTrue(user == user2, "对象不相等！");
 
     }
 
