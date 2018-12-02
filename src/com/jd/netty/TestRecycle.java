@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
  */
 public class TestRecycle {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         User user = userRecycler.get();
         user.setName("dxn");
@@ -23,6 +23,27 @@ public class TestRecycle {
         System.out.println("user2 = " + user2);
 
         Assert.isTrue(user == user2, "对象不相等！");
+
+//////////////////////////// 异步回收对象
+        // 1、从回收池获取对象
+        User user1 = userRecycler.get();
+        // 2、设置对象并使用
+        user1.setName("hello,java");
+
+        Thread thread = new Thread(()->{
+            System.out.println(user1);
+            // 3、对象恢复出厂设置
+            user1.setName(null);
+            // 4、回收对象到对象池
+            user1.recycle();
+        });
+
+        thread.start();
+        thread.join();
+
+        // 5、从回收池获取对象
+        User user3 = userRecycler.get();
+//        Assert.assertSame(user1, user2);
 
     }
 

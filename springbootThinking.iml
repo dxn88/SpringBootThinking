@@ -40,7 +40,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: net.minidev:accessors-smart:1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm:5.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:2.15.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy:1.7.11" level="project" />
@@ -54,5 +53,10 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.30.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.1.1" level="project" />
   </component>
 </module>
