@@ -32,7 +32,4 @@ public class TestOptional {
                 .map(North::getName).orElse("unknown");
     }
 
-    public static Map<String, List<Apple>> getListApplesBycolor(List<Apple> apples) {
-        return apples.stream().collect(Collectors.groupingBy(Apple::getColor));
-    }
 }
