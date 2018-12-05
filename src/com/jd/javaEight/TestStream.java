@@ -28,6 +28,8 @@ public class TestStream {
         apples.add(apple1);
         apples.add(apple2);
 
+
+        // parallstream并行处理
         Stream<Apple> sorted = apples.stream().filter(applef -> applef.getWeight() > 99).sorted(Comparator.comparing(Apple::getWeight));
         List<String> collect = sorted.map(Apple::getColor).collect(Collectors.toList());
         System.out.println("collect = " + collect);
