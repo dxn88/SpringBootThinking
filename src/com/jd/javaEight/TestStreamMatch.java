@@ -23,5 +23,7 @@ public class TestStreamMatch {
 
         integerStream = Stream.of(1, 2, 3, 3, 4, 5, 6, 7, 6, 5, 7, 8, 9, 1);
         Optional<Integer> first = integerStream.filter(i -> i > 5).findFirst();
+
+        first.ifPresent(System.out::println);
     }
 }
