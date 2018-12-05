@@ -1,8 +1,11 @@
 package com.jd.javaEight;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
@@ -36,12 +39,17 @@ public class lamdaUsage {
 
         Apple apple = new Apple();
         apple.setColor("green");
-        apple.setWeight(100);
+        apple.setWeight(103);
         Apple apple1 = new Apple();
         apple1.setColor("red");
         apple1.setWeight(100);
+
+        Apple apple2 = new Apple();
+        apple2.setColor("red");
+        apple2.setWeight(102);
         apples.add(apple);
         apples.add(apple1);
+        apples.add(apple2);
 
         List<Apple> red = findApple(apples, appleVal -> appleVal.getColor().equals("red"));
         System.out.println("red = " + red);
