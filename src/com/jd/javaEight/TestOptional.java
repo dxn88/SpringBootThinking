@@ -15,10 +15,8 @@ public class TestOptional {
         String appleColor = getAppleColor(new Apple());
         String appleColor1 = getAppleColor(null);
         System.out.println("appleColor = " + appleColor);
-        String appleProductPlace = getAppleProductPlace(null);
-        System.out.println("appleProductPlace = " + appleProductPlace);
-        String appleProductPlace1 = getAppleProductPlace(new Apple());
-        System.out.println("appleProductPlace1 = " + appleProductPlace1);
+        Optional.ofNullable(getAppleProductPlace(null)).ifPresent(System.out::println);
+        Optional.ofNullable(getAppleProductPlace(new Apple())).ifPresent(System.out::println);
     }
 
     public static String getAppleColor(Apple apple) {
