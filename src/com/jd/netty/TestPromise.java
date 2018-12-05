@@ -52,6 +52,7 @@ public class TestPromise {
 
         try {
             latch.await(100, TimeUnit.SECONDS);
+            System.out.println("promise = " + promise);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
