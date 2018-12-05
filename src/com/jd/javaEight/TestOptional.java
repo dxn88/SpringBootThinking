@@ -1,6 +1,9 @@
 package com.jd.javaEight;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
@@ -27,5 +30,9 @@ public class TestOptional {
     public static String getAppleProductPlace(Apple apple) {
         return Optional.ofNullable(apple).map(Apple::getProductPlace).map(ProductPlace::getNorth)
                 .map(North::getName).orElse("unknown");
+    }
+
+    public static Map<String, List<Apple>> getListApplesBycolor(List<Apple> apples) {
+        return apples.stream().collect(Collectors.groupingBy(Apple::getColor));
     }
 }
