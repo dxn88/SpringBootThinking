@@ -10,6 +10,7 @@ public class TestOptional {
     public static void main(String[] args) {
 
         Optional<Apple> apple = Optional.ofNullable(null);
+//        Optional.ofNullable(null).orElseThrow(RuntimeException::new);
         System.out.println("apple.get() = " + apple.orElseGet(Apple::new));
         String appleColor = getAppleColor(new Apple());
         String appleColor1 = getAppleColor(null);
