@@ -12,6 +12,8 @@ public class Apple {
     private String color;
     private int weight;
 
+    private ProductPlace productPlace = new ProductPlace();
+
     public static String productString() {
         return "String";
     }
