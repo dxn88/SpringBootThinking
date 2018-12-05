@@ -11,4 +11,8 @@ import lombok.Data;
 public class Apple {
     private String color;
     private int weight;
+
+    public static String productString() {
+        return "String";
+    }
 }
