@@ -21,7 +21,6 @@ public class TestCollectors {
         Apple apple1 = new Apple();
         apple1.setColor("red");
         apple1.setWeight(100);
-
         Apple apple2 = new Apple();
         apple2.setColor("red");
         apple2.setWeight(102);
@@ -30,10 +29,15 @@ public class TestCollectors {
         apples.add(apple2);
 
         Optional.ofNullable(getListApplesBycolor(apples)).ifPresent(System.out::println);
+        Optional.ofNullable(sumlongWeight(apples)).ifPresent(System.out::println);
     }
 
     // list 转map 很方便
     public static Map<String, List<Apple>> getListApplesBycolor(List<Apple> apples) {
         return apples.stream().collect(Collectors.groupingBy(Apple::getColor));
+    }
+
+    public static long sumlongWeight(List<Apple> apples){
+        return apples.stream().collect(Collectors.summingLong(Apple::getWeight));
     }
 }
