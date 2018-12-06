@@ -29,5 +29,6 @@ class C extends B{
     @Override
     public void hello() {
         //这里怎么调用A的hello方法？
+
     }
 }
