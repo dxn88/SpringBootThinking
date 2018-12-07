@@ -18,14 +18,15 @@ public class TestEmptyInterface {
         Arrays.stream(objects).forEach(Hunter::hunt);
 //        List<Object> objectList = Arrays.asList(objects);
 //        objectList.stream().forEach(Hunter::hunt);
-//        Optional.ofNullable(objectList).ifPresent(System.out::println);
+//        Optional.ofNullable(objects).ifPresent(System.out::println);
     }
 
 }
 
 
 class Hunter{
-    public static void hunt(Object o) {
+
+     static void hunt(Object o) {
 
         if (o instanceof Human) {
             return;
