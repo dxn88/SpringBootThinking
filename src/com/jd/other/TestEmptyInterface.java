@@ -5,6 +5,7 @@ import lombok.ToString;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
@@ -19,6 +20,9 @@ public class TestEmptyInterface {
 //        List<Object> objectList = Arrays.asList(objects);
 //        objectList.stream().forEach(Hunter::hunt);
 //        Optional.ofNullable(objects).ifPresent(System.out::println);
+       Arrays.stream(objects).map(Object::toString).forEach(System.out::println);
+
+//        Optional.ofNullable(stringStream).ifPresent(System.out::);
     }
 
 }
