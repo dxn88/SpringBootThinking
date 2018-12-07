@@ -16,9 +16,9 @@ public class TestEmptyInterface {
         Object[] objects = new Object[]{new OldMan(), new Jenpenese(), new Woman()};
 
         Arrays.stream(objects).forEach(Hunter::hunt);
-        List<Object> objectList = Arrays.asList(objects);
+//        List<Object> objectList = Arrays.asList(objects);
 //        objectList.stream().forEach(Hunter::hunt);
-        Optional.ofNullable(objectList).ifPresent(System.out::println);
+//        Optional.ofNullable(objectList).ifPresent(System.out::println);
     }
 
 }
