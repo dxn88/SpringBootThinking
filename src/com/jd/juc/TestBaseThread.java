@@ -28,7 +28,7 @@ class Demo extends Thread {
     public void run() {
         while (!isInterrupted()) {
 //            try {
-//                System.out.println("getName() = " + getName());
+                System.out.println("getName() = " + getName());
 //                Thread.sleep(1000);
 //            } catch (InterruptedException e) {
                 System.out.println("Thread.currentThread().isInterrupted: " + Thread.currentThread().isInterrupted());
@@ -37,7 +37,7 @@ class Demo extends Thread {
 //            }
         }
         while (true) {
-
+            System.out.println("Demo.run");
         }
     }
 }
