@@ -1,6 +1,7 @@
 package com.jd.juc;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
@@ -19,7 +20,8 @@ public class TestAtomic {
     private static AtomicReferenceFieldUpdater<TestAtomic, Integer> IdUpdater =
             AtomicReferenceFieldUpdater.newUpdater(TestAtomic.class, Integer.class, "id");
 
-
+    // 对引用操作保证原子性，对对象里面的属性不保证原子性
+    private AtomicReference<TestAtomic> testAtomicAtomicReference = new AtomicReference<>();
 
     public static void main(String[] args) {
 
