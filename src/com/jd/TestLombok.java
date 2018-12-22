@@ -21,5 +21,6 @@ public class TestLombok {
     @Synchronized
     public static void main(String[] args) {
         @Cleanup InputStream inputStream = new FileInputStream(args[0]);
+        TestLombok.getInstance("name");
     }
 }
