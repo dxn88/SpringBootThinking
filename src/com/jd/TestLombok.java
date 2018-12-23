@@ -15,6 +15,7 @@ import java.io.InputStream;
 @ToString(callSuper=true, includeFieldNames=true)
 @EqualsAndHashCode(exclude = {"id", "shape"}, callSuper = false)
 public class TestLombok {
+    @Getter @Setter
     @NonNull private String name;
 
     @SneakyThrows
