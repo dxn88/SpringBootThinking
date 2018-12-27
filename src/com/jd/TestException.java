@@ -25,12 +25,12 @@ public class TestException {
 
 class MyException extends RuntimeException {
     public MyException(String message) {
-        super(message);
+        super(message, null, false, false);
     }
 
-    @Override
-    public synchronized Throwable fillInStackTrace() {
-//        setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
-        return this;
-    }
+//    @Override
+//    public synchronized Throwable fillInStackTrace() {
+////        setStackTrace(EmptyArrays.EMPTY_STACK_TRACE);
+//        return this;
+//    }
 }
