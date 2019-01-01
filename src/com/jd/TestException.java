@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
  * @author: <a href="mailto:daixunan@jd.com">戴续楠</a>
  * @date:2018/12/27
  */
+
 public class TestException {
     public static void main(String[] args) {
         MyException myException = new MyException("");
@@ -23,6 +24,9 @@ public class TestException {
 }
 
 
+/**
+ * 为单例模式只一次获取反射
+ */
 class MyException extends RuntimeException {
     private  Method fillInStackTrace;
 
