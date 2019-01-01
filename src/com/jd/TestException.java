@@ -35,7 +35,7 @@ class MyException extends RuntimeException {
     private Method getStackTraceElement;
 
     public MyException(String message) {
-        super(message, null, false, true);
+        super(message, null, false, false);
         init();
     }
 
@@ -50,6 +50,7 @@ class MyException extends RuntimeException {
         getStackTraceElement = Throwable.class.getDeclaredMethod("getStackTraceElement", int.class);
         getStackTraceElement.setAccessible(true);
     }
+
     @SneakyThrows
     public void printStackTraceDepth() {
 
