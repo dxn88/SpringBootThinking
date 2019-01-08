@@ -11,6 +11,7 @@ import java.util.ServiceLoader;
  */
 public class TestSpi {
     public static void main(String[] args) {
+        // 注解方式
         ServiceLoader<HelloService> s = ServiceLoader.load(HelloService.class);
         Iterator<HelloService> searchs = s.iterator();
         if(searchs.hasNext()){
