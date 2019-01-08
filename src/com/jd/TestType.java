@@ -11,3 +11,26 @@ public class TestType {
         System.out.println("testTypeClass = " + testTypeClass);
     }
 }
+
+/**
+ * 只要有个子类灭有写  @Override 父类就会报错
+ */
+interface Hello{
+    /**
+     * hello
+     */
+    void hello();
+}
+
+class HelloImpl implements Hello {
+    @Override
+    public void hello() {
+
+    }
+}
+
+class HelloImpl2 implements Hello {
+    public void hello() {
+
+    }
+}
