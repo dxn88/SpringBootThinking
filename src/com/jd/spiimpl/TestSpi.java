@@ -16,7 +16,7 @@ public class TestSpi {
         Iterator<HelloService> searchs = s.iterator();
         if(searchs.hasNext()){
             HelloService speak = searchs.next();
-            speak.sayHello();
+            speak.sayHello(null);
         }
 
     }

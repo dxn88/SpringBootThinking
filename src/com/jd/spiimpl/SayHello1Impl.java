@@ -1,5 +1,6 @@
 package com.jd.spiimpl;
 
+import com.alibaba.dubbo.common.URL;
 import com.jd.spi.HelloService;
 
 /**
@@ -9,7 +10,7 @@ import com.jd.spi.HelloService;
 public class SayHello1Impl implements HelloService {
 
     @Override
-    public void sayHello() {
+    public void sayHello(URL url) {
         System.out.println("this is Second Spi!");
     }
 }

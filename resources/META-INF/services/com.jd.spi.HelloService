@@ -1,1 +1,1 @@
-com.jd.spiimpl.SayHelloImpl
+dubbo=com.jd.spiimpl.SayHelloImpl
