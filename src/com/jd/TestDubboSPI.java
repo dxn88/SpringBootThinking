@@ -10,9 +10,9 @@ import com.jd.spi.HelloService;
  */
 public class TestDubboSPI {
 
-    private static HelloService helloService =  ExtensionLoader.getExtensionLoader(HelloService.class).getAdaptiveExtension();
+    private static HelloService helloService =  ExtensionLoader.getExtensionLoader(HelloService.class).getExtension("dubbo");
     public static void main(String[] args) {
-        URL url = new URL("", "", 0);
-        helloService.sayHello(url);
+        URL url = new URL(null, "", 0);
+        helloService.sayHello(null);
     }
 }
